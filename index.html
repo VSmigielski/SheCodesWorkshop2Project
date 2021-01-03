@@ -17,10 +17,10 @@
             5-Day Weather Forecast
         </h1>
         <form id="weather-form">
-        <input id="search-text-input" type="text" 
+        <input id="search-text-input" type="search" 
         placeholder="Enter a city" autofocus="on" auto-complete="off"/>
         <button type="submit" id="search" class="btn btn-success">Search</button>
-        <button type="submit" id="current" class="btn btn-primary">Current</button>
+        <button type="submit" id="current-location-button" class="btn btn-primary">Current</button>
         <p>
             Commonly Searched: &nbsp;&nbsp;
             <a href="" id="paris-text">Paris</a> &nbsp;&nbsp;
@@ -34,9 +34,9 @@
                 <div class="row">
                     <div class="col-6">
                         <ul>
+                        <li id="city-text">Wommelgem</li> 
                         <li id="day-time-text">Today</li>
-                        <li id="day-month-text">21/11</li>
-                        <li id="city-text">Wommelgem</li>          
+                        <li id="day-month-text">21/11</li>       
                         <li><span id="temperature-text">11</span>
                             <a href="" id="celsius-link">°C</a>
                             &nbsp;|&nbsp;
@@ -134,7 +134,7 @@
         </p>
     </div>
     <p>
-        <a href="https://github.com/VSmigielski/SheCodesWorkshop2Project">Open-source code</a> by Veronica Smigielski
+        <a href="https://github.com/VSmigielski/SheCodesWorkshop2Project" target=”_blank”>Open-source code</a> by Veronica Smigielski
     </p>
 </form>
     <script src="https://kit.fontawesome.com/a0c1cb2920.js" crossorigin="anonymous"></script>
