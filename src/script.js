@@ -68,6 +68,7 @@ function updateFahrenheit(event) {
   let temperatureElement = document.querySelector("#temperature-text");
   temperatureElement.innerHTML = 66;
 }
+
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", updateFahrenheit);
 
@@ -98,10 +99,7 @@ function getCurrentLocation(event) {
 
 
 function showCurrentTemperature(response) {
-  console.log(response.data);
-  let temperature = Math.round(response.data.main.temp);
-  let temperatureElement = document.querySelector("#temperature-text"); 
-  temperatureElement.innerHTML = `${temperature}`;            
+  console.log(response.data);          
 }
   
 
@@ -109,7 +107,51 @@ function showCurrentTemperature(response) {
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
+function updateParis(event) {
+  event.preventDefault();
+  let city = "Paris";
+  let apiKey = "2be58cddf00b361ef70e0c8873c3ee84";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=
+  ${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
 
+let parisLink = document.querySelector("#paris-text");
+parisLink.addEventListener("click", updateParis);
 
+function updateAmsterdam(event) {
+  event.preventDefault();
+  let city = "Amsterdam";
+  let apiKey = "2be58cddf00b361ef70e0c8873c3ee84";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=
+  ${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
 
+let amsterdamLink = document.querySelector("#amsterdam-text");
+amsterdamLink.addEventListener("click", updateAmsterdam);
  
+function updateNewYork(event) {
+  event.preventDefault();
+  let city = "New York";
+  let apiKey = "2be58cddf00b361ef70e0c8873c3ee84";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=
+  ${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+let newyorkLink = document.querySelector("#newyork-text");
+newyorkLink.addEventListener("click", updateNewYork);
+
+function updateTokyo(event) {
+  event.preventDefault();
+  let city = "Tokyo";
+  let apiKey = "2be58cddf00b361ef70e0c8873c3ee84";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=
+  ${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+let tokyoLink = document.querySelector("#tokyo-text");
+tokyoLink.addEventListener("click", updateTokyo);
+
