@@ -48,10 +48,13 @@ function showTemperature(response) {
     document.querySelector("#city-text").innerHTML = response.data.name;
     let temperature = Math.round(response.data.main.temp);
     let temperatureElement = document.querySelector("#temperature-text"); 
-    temperatureElement.innerHTML = `${temperature}`;   
+    temperatureElement.innerHTML = `${temperature}`; 
+    let descriptionElement = document.querySelector("#description");
+    descriptionElement.innerHTML = response.data.weather[0].description;  
     let iconElement = document.querySelector("#icon");      
     iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-}
+    iconElement.setAttribute("alt", response.data.weather[0].description);
+  }
 
 // Feature 2
 let searchForm = document.querySelector("#weather-form");

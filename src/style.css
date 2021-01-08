@@ -16,6 +16,10 @@ ul {
     display: block;
 }
 
+li:first-letter {
+    text-transform: capitalize;
+}
+
 .fa-cloud {
     font-size: 48px
 }
