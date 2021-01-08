@@ -18,6 +18,7 @@ let days = [
   "Friday", 
   "Saturday"
 ];
+
 let day = days[date.getDay()];
 
 return `${day} ${hours}:${minutes}`;
@@ -47,7 +48,9 @@ function showTemperature(response) {
     document.querySelector("#city-text").innerHTML = response.data.name;
     let temperature = Math.round(response.data.main.temp);
     let temperatureElement = document.querySelector("#temperature-text"); 
-    temperatureElement.innerHTML = `${temperature}`;           
+    temperatureElement.innerHTML = `${temperature}`;   
+    let iconElement = document.querySelector("#icon");      
+    iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
 // Feature 2
