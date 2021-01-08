@@ -73,15 +73,75 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", updateFahrenheit);
 
 function formatDayMonth(currentDay) {
-let date = currentDay.getDate();
-let month = currentDay.getMonth();
-let monthNumber = month + 1;
-return `${date}/${monthNumber}`;
-}
-// My own extra feature 1
+  let date = currentDay.getDate();
+  let month = currentDay.getMonth();
+  let monthNumber = month + 1;
+  return `${date}/${monthNumber}`;
+  }
+
+  // My own extra feature 1
 let currentDay = new Date();
 let yearDay = document.querySelector("#day-month-text");
 yearDay.innerHTML = formatDayMonth(currentDay);
+
+function formatDayMonth(firstDate) {
+  let date = firstDate.getDate();
+  let month = firstDate.getMonth();
+  let monthNumber = month + 1;
+  return `${date}/${monthNumber}`;
+  }
+  
+  let firstDate = new Date();
+  let firstDay = document.querySelector("#first-date");
+  firstDay.innerHTML = formatDayMonth(firstDate);
+
+function formatDayMonth(secondDate) {
+let date = secondDate.getDate();
+let month = secondDate.getMonth();
+let monthNumber = month + 1;
+return `${date}/${monthNumber}`;
+}
+
+let secondDate = new Date();
+secondDate.setDate(secondDate.getDate() + 1);
+let secondDay = document.querySelector("#second-date");
+secondDay.innerHTML = formatDayMonth(secondDate);
+
+function formatDayMonth(thirdDate) {
+  let date = thirdDate.getDate();
+  let month = thirdDate.getMonth();
+  let monthNumber = month + 1;
+  return `${date}/${monthNumber}`;
+  }
+  
+  let thirdDate = new Date();
+  thirdDate.setDate(thirdDate.getDate() + 2);
+  let thirdDay = document.querySelector("#third-date");
+  thirdDay.innerHTML = formatDayMonth(thirdDate);
+
+  function formatDayMonth(fourthDate) {
+    let date = fourthDate.getDate();
+    let month = fourthDate.getMonth();
+    let monthNumber = month + 1;
+    return `${date}/${monthNumber}`;
+    }
+    
+    let fourthDate = new Date();
+    fourthDate.setDate(fourthDate.getDate() + 3);
+    let fourthDay = document.querySelector("#fourth-date");
+    fourthDay.innerHTML = formatDayMonth(fourthDate);   
+
+    function formatDayMonth(fifthDate) {
+      let date = fifthDate.getDate();
+      let month = fifthDate.getMonth();
+      let monthNumber = month + 1;
+      return `${date}/${monthNumber}`;
+      }
+      
+      let fifthDate = new Date();
+      fifthDate.setDate(fifthDate.getDate() + 4);
+      let fifthDay = document.querySelector("#fifth-date");
+      fifthDay.innerHTML = formatDayMonth(fifthDate);
 
 function searchLocation(position) {
   let apiKey = "2be58cddf00b361ef70e0c8873c3ee84";
@@ -155,3 +215,11 @@ function updateTokyo(event) {
 let tokyoLink = document.querySelector("#tokyo-text");
 tokyoLink.addEventListener("click", updateTokyo);
 
+function getFiveDayForecast(response) {
+  let apiKey = "2be58cddf00b361ef70e0c8873c3ee84";
+  let cnt = 5;
+  let city = document.querySelector("#search-text-input").value;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=${cnt}&appid=${apiKey}`;
+  axios.get(apiUrl).then(showCurrentTemperature);
+  console.log(response.data);
+}
