@@ -14,7 +14,7 @@
 <body>
     <div class="container">
         <h1>
-            5-Day Weather Forecast
+            Weather Forecast
         </h1>
         <form id="weather-form">
         <input id="search-text-input" type="search" 
@@ -32,13 +32,19 @@
         <p>
             <h2>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-4">
                         <ul>
-                        <li id="city-text">Wommelgem</li> 
-                        <li id="day-time">Last updated:&nbsp;<span id="day-time-text"></span></li>
+                        <li id="city-text">Wommelgem</li>
                         <li id="description">Clear</li>
                         <li id="day-month-text">21/11</li>       
-                        <li><span id="temperature-text">11</span>
+                        <li>
+                                <img 
+                                src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                                alt="Clear"
+                                id="icon"
+                                class="float-left"
+                                />
+                            <span id="temperature-text">11</span>
                             <a href="" id="celsius-link" class="active">°C</a>
                             &nbsp;|&nbsp;
                             <a href="" id="fahrenheit-link">°F</a>
@@ -46,16 +52,11 @@
                         </ul>
                     </div>
                     <div class="col-6">
-                        <div class="big-weather-icon">
-                            <img 
-                            src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-                            alt="Clear"
-                            id="icon"
-                            class="float-left"
-                            height="150"
-                            />
-                        </div>
-                    </div>                 
+                        <ul>
+                            <li id="day-time">Last updated:&nbsp;<span id="day-time-text"></span></li>
+                            <li>Humidity: <span id="humidity"></span>%</li>
+                            <li>Wind: <span id="wind"></span> km/h</li>
+                          </ul>                
             </div>
                         <br />
                         </div>

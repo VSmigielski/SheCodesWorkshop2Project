@@ -42,13 +42,17 @@ function displayTemperature(response) {
   let cityElement = document.querySelector("#city-text");
   let descriptionElement = document.querySelector("#description");
   let dateElement = document.querySelector("#day-time-text")
+  let windElement = document.querySelector("#wind");
+  let humidityElement = document.querySelector("#humidity");
   let iconElement = document.querySelector("#icon");  
    
   celsiusTemperature = response.data.main.temp;
 
   temperatureElement.innerHTML = Math.round(celsiusTemperature); 
   cityElement.innerHTML = response.data.name;
-  descriptionElement.innerHTML = response.data.weather[0].description;     
+  descriptionElement.innerHTML = response.data.weather[0].description;   
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
   iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
