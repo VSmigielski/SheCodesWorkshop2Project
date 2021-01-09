@@ -38,6 +38,7 @@ let minutes = date.getMinutes();
 }
 
 function displayTemperature(response) {
+  console.log(response.data);
   let temperatureElement = document.querySelector("#temperature-text");
   let cityElement = document.querySelector("#city-text");
   let descriptionElement = document.querySelector("#description");
