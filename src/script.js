@@ -210,6 +210,8 @@ newyorkLink.addEventListener("click", updateNewYork);
 let tokyoLink = document.querySelector("#tokyo-text");
 tokyoLink.addEventListener("click", updateTokyo);
 
+search("New York");
+
 /* This retrieves the day and month by incrementing the initial date 
 function formatDayMonth(firstDate) {
   let date = firstDate.getDate();
@@ -282,5 +284,3 @@ function formatDayMonth(thirdDate) {
    console.log(response.data);
  }
 */
-
-search("New York");
