@@ -31,7 +31,7 @@ dayTimeElement.innerHTML = formatDate(currentTime);
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
-  searchCity(city);
+  search(city);
 }
 
 function searchCity(event) {
@@ -54,6 +54,10 @@ function showTemperature(response) {
     let iconElement = document.querySelector("#icon");      
     iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     iconElement.setAttribute("alt", response.data.weather[0].description);
+    let dayTimeElement = document.querySelector("#day-time-text");
+    let currentTime = new Date();
+    dayTimeElement.innerHTML = formatDate(currentTime);
+    celsiusTemperature = response.data.main.temp;
   }
 
 // Feature 2
@@ -64,16 +68,25 @@ searchForm.addEventListener("submit", searchCity);
 function updateCelsius(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature-text");
-  temperatureElement.innerHTML = 19;
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
+
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", updateCelsius);
 
 function updateFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature-text");
-  temperatureElement.innerHTML = 66;
+  // remove the active class from celsius link
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) /5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
+
+let celsiusTemperature = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", updateFahrenheit);
@@ -148,6 +161,7 @@ function formatDayMonth(thirdDate) {
       fifthDate.setDate(fifthDate.getDate() + 4);
       let fifthDay = document.querySelector("#fifth-date");
       fifthDay.innerHTML = formatDayMonth(fifthDate);
+
 
 function searchLocation(position) {
   let apiKey = "2be58cddf00b361ef70e0c8873c3ee84";
@@ -229,3 +243,5 @@ function getFiveDayForecast(response) {
   axios.get(apiUrl).then(showCurrentTemperature);
   console.log(response.data);
 }
+
+search("New York");

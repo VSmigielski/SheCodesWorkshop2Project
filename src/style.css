@@ -20,6 +20,15 @@ li:first-letter {
     text-transform: capitalize;
 }
 
+.active {
+    color: black;
+    cursor: default;
+}
+
+.active:hover {
+    text-decoration: none;
+}
+
 .fa-cloud {
     font-size: 48px
 }
