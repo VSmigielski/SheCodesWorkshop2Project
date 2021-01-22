@@ -12,10 +12,11 @@ ul {
     margin: 20px;
     border-radius: 10px;
 }
-.dates {
+/* .dates {
     margin-left: 20px;
     display: block;
 }
+*/
 
 li:first-letter {
     text-transform: capitalize;
